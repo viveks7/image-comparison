@@ -1,0 +1,44 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+      <div class="col s12 center-align indigo-text text-darken-4">
+        <h4>See how similar 2 images look</h4>
+        <p>Give URL to images and see the Result</p>
+        <p>jpg format only for now</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 ">
+        <form action="" method="post" class="center" name"linkform">
+          {{ form.hidden_tag() }}
+          <div class="input-field col s12 l5 m5">
+            {{ form.link_one(size=40) }}
+            {% for error in form.link_one.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>
+            <label for="link_one">Link 1</label>
+          </div>
+          <div class="col l2 m2 hide-on-small-only center"><br><br><i class="material-icons">code</i>
+          </div>
+          <div class="input-field col s12 m5 l5">
+            {{ form.link_two(size=40) }}
+            {% for error in form.link_two.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>
+            <label  for="link_two">Link 2</label>
+          </div>
+          <div class="row">
+            <div class="col s12 center">
+              <br>
+              <br>
+              <br>
+              <br>
+              <button id="submit_button" type="submit" class="btn-floating btn-large waves-effect waves-light red center-align"><i class="material-icons">done</i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+{% endblock %}
